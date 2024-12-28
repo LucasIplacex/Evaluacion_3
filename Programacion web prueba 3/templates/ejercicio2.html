@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina de Inicio</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+</head>
+<body>
+    <div class="formulario_ejercicio_2">
+        <form method="POST">
+            <label for="nombre1">Nombre 1:</label>
+            <input type="text" name="nombre1" class="input_ejercicio2" value="{{ nombre1 or '' }}"><br>
+
+            <label for="nombre2">Nombre 2:</label>
+            <input type="text" name="nombre2" class="input_ejercicio2" value="{{ nombre2 or '' }}"><br>
+
+            <label for="nombre3">Nombre 3:</label>
+            <input type="text" name="nombre3" class="input_ejercicio2" value="{{ nombre3 or '' }}"><br>
+
+            <input type="submit" value="Enviar" class="boton_ejercicio2">
+        </form>
+
+        {% if mas_largo %}
+            <div class="resultado_eje2">
+                <p>El nombre con mayor cantidad de caracteres es: {{ mas_largo }}</p>
+                <p>El nombre tiene: {{ longitud }} caracteres</p>
+            </div>
+        {% endif %}
+
+        {% if error %}
+            <div class="error_eje2">
+                <p style="color: red;">{{ error }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

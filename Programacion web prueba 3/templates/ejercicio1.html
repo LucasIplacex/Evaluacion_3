@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina de Inicio</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+</head>
+<body>
+    <div class="formulario_ejercicio_1">
+        <h1>Formulario de Notas</h1>
+        <form method="POST">
+            <label for="nota1">Nota 1:</label>
+            <input type="text" name="nota1" class="input_ejercicio1" value="{{ nota1 if nota1 is not none else '' }}"><br>
+
+            <label for="nota2">Nota 2:</label>
+            <input type="text" name="nota2" class="input_ejercicio1" value="{{ nota2 if nota2 is not none else '' }}"><br>
+
+            <label for="nota3">Nota 3:</label>
+            <input type="text" name="nota3" class="input_ejercicio1" value="{{ nota3 if nota3 is not none else '' }}"><br>
+
+            <label for="asistencia">Asistencia (%):</label>
+            <input type="text" name="asistencia" class="input_ejercicio1" value="{{ asistencia if asistencia is not none else '' }}"><br>
+
+            <input type="submit" value="Enviar" class="boton_ejercicio1">
+        </form>
+
+        {% if promedio is not none and not error %}
+            <div class="resultado_eje1">
+                <p>{{ promedio|round(1) }}</p>
+                <p>{{ estado }}</p>
+            </div>
+        {% endif %}
+
+        {% if error %}
+            <div class="error_eje1">
+                <p style="color: red;">{{ error }}</p>
+            </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
